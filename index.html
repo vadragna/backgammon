@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Backgammon</title>
+  </head>
+  <body>
+    <div class="board">
+      <div class="left-bin">
+        <div class="top-row">
+          <div class="arrow-down odd"></div>
+
+          <div class="arrow-down even"></div>
+          <div class="arrow-down odd"></div>
+          <div class="arrow-down even"></div>
+          <div class="arrow-down odd"></div>
+          <div class="arrow-down even"></div>
+        </div>
+        <div class="column one">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column two">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column three">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column four">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column five">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column six">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column seven">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column eight">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column nine">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column ten">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column eleven">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column twelve">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down thirteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down fourteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down fifteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down sixteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down seventeen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down eighteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down nineteen">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down twenty">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down twentyone">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down twentytwo">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down twentythree">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+        <div class="column down twentyfour">
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+          <div class="slot"><div class="hole"></div></div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+        </div>
+      </div>
+
+      <div class="middle-bar"></div>
+
+      <div class="right-bin">
+        <div class="top-row">
+          <div class="arrow-down odd"></div>
+          <div class="arrow-down even"></div>
+          <div class="arrow-down odd"></div>
+          <div class="arrow-down even"></div>
+          <div class="arrow-down odd"></div>
+          <div class="arrow-down even"></div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+          <div class="arrow-up odd"></div>
+          <div class="arrow-up even"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

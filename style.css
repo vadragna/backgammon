@@ -1,0 +1,176 @@
+.board {
+  width: 800px;
+  height: 570px;
+  position: relative;
+  background-color: #335533;
+  box-sizing: border-box;
+  border: 10px solid black;
+  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.left-bin {
+  position: relative;
+  left: 27px;
+}
+
+.right-bin {
+  position: relative;
+  left: 420px;
+  top: -480px;
+}
+
+.arrow-down {
+  width: 0px;
+  height: 0px;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-top: 240px solid white;
+  border-bottom: 0px solid;
+  display: inline;
+  float: left;
+}
+
+.left-bin .bottom-row {
+  clear: left;
+}
+
+.right-bin .top-row {
+  clear: left;
+}
+
+.right-bin .bottom-row {
+  clear: left;
+}
+
+.bottom-row {
+  position: relative;
+  top: 70px;
+}
+
+.arrow-up {
+  width: 0px;
+  height: 0px;
+  border-top: 0px solid;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-bottom: 240px solid white;
+  display: inline;
+  float: left;
+}
+
+.arrow-up.odd {
+  border-bottom: 240px solid red;
+}
+
+.arrow-down.even {
+  border-top: 240px solid red;
+}
+
+.middle-bar {
+  width: 33px;
+  height: 550px;
+  padding: 5px;
+  background-color: black;
+  position: absolute;
+  left: 370px;
+  top: 0px;
+}
+
+.slot {
+  transform: translateY(-40px, -40px);
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+}
+
+.hole {
+  border: 40px solid slategray;
+  width: 30px;
+  height: 30px;
+  transform: translate(-35px, -35px);
+  border-radius: 50%;
+}
+
+.column {
+  position: absolute;
+  z-index: 2;
+}
+
+.down {
+  top: 310px;
+}
+
+.column.one {
+  right: 60px;
+}
+.column.two {
+  right: 116px;
+}
+.column.three {
+  right: 172px;
+}
+.column.four {
+  right: 228px;
+}
+.column.five {
+  right: 284px;
+}
+.column.six {
+  right: 340px;
+}
+.column.seven {
+  right: 452px;
+}
+.column.eight {
+  right: 508px;
+}
+.column.nine {
+  right: 564px;
+}
+.column.ten {
+  right: 620px;
+}
+.column.eleven {
+  right: 676px;
+}
+.column.twelve {
+  right: 732px;
+}
+.column.thirteen {
+  right: 60px;
+}
+.column.fourteen {
+  right: 116px;
+}
+.column.fifteen {
+  right: 172px;
+}
+.column.sixteen {
+  right: 228px;
+}
+.column.seventeen {
+  right: 284px;
+}
+.column.eighteen {
+  right: 340px;
+}
+.column.nineteen {
+  right: 452px;
+}
+.column.twenty {
+  right: 508px;
+}
+.column.twentyone {
+  right: 564px;
+}
+.column.twentytwo {
+  right: 620px;
+}
+.column.twentythree {
+  right: 676px;
+}
+.column.twentyfour {
+  right: 732px;
+}
