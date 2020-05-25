@@ -130,6 +130,11 @@
 .column.six {
   right: 340px;
 }
+
+.column.recover {
+  right: 395px;
+  top: 158px;
+}
 .column.seven {
   right: 452px;
 }
