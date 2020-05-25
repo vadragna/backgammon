@@ -1,6 +1,8 @@
 (function () {
   let columns = $(".column");
   let destinationColumn;
+  let random;
+  let random2;
   console.log("columns", columns);
 
   function moveCoin(e, player, opponent) {
@@ -9,7 +11,6 @@
       if (columns[i] == e.currentTarget) {
         let targetColumn = $(columns[i]).eq(0).children();
         console.log("targetColumn", targetColumn);
-        let random = 1;
         for (let x = targetColumn.length - 1; x >= 0; x--) {
           if (targetColumn.eq(x).hasClass(player)) {
             console.log(targetColumn.eq(x).hasClass(player));
@@ -40,6 +41,54 @@
       }
     }
   }
+
+  function rollTheDice(dice) {
+    random = Math.floor(Math.random() * 6) + 1;
+    let diceSlots = $(".dice." + dice).children();
+    console.log(dice, diceSlots);
+
+    console.log("random", random);
+    if (random === 1) {
+      diceSlots.eq(4).addClass("black");
+    }
+    if (random === 2) {
+      diceSlots.eq(1).addClass("black");
+      diceSlots.eq(7).addClass("black");
+    }
+    if (random === 3) {
+      diceSlots.eq(1).addClass("black");
+      diceSlots.eq(4).addClass("black");
+      diceSlots.eq(7).addClass("black");
+    }
+    if (random === 4) {
+      diceSlots.eq(0).addClass("black");
+      diceSlots.eq(2).addClass("black");
+      diceSlots.eq(6).addClass("black");
+      diceSlots.eq(8).addClass("black");
+    }
+    if (random === 5) {
+      diceSlots.eq(0).addClass("black");
+      diceSlots.eq(2).addClass("black");
+      diceSlots.eq(4).addClass("black");
+      diceSlots.eq(6).addClass("black");
+      diceSlots.eq(8).addClass("black");
+    }
+    if (random === 6) {
+      diceSlots.eq(0).addClass("black");
+      diceSlots.eq(2).addClass("black");
+      diceSlots.eq(3).addClass("black");
+      diceSlots.eq(5).addClass("black");
+      diceSlots.eq(6).addClass("black");
+      diceSlots.eq(8).addClass("black");
+    }
+  }
+
+  $("#roll").on("click", function () {
+    rollTheDice("first");
+    rollTheDice("second");
+    rollTheDice("third");
+    rollTheDice("fourth");
+  });
 
   for (let i = 0; i <= 4; i++) {
     columns.eq(13).children().eq(i).addClass("white");
