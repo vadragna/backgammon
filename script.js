@@ -2,7 +2,8 @@
   let columns = $(".column");
   let destinationColumn;
   let random;
-  let random2;
+  let moves = [];
+  let currentPlayer = "red";
   console.log("columns", columns);
 
   function moveCoin(e, player, opponent) {
@@ -16,14 +17,15 @@
             console.log(targetColumn.eq(x).hasClass(player));
             targetColumn.eq(x).removeClass(player);
             if (player === "red") {
-              destinationColumn = $(columns[i - random])
+              destinationColumn = $(columns[i - moves[0]])
                 .eq(0)
                 .children();
             } else {
-              destinationColumn = $(columns[i + random])
+              destinationColumn = $(columns[i + moves[0]])
                 .eq(0)
                 .children();
             }
+            moves.shift();
             for (let y = 0; y <= destinationColumn.length; y++) {
               if (
                 !destinationColumn.eq(y).hasClass(player) &&
@@ -81,13 +83,17 @@
       diceSlots.eq(6).addClass("black");
       diceSlots.eq(8).addClass("black");
     }
+    moves.push(random);
   }
 
   $("#roll").on("click", function () {
-    rollTheDice("first");
-    rollTheDice("second");
-    rollTheDice("third");
-    rollTheDice("fourth");
+    if (currentPlayer === "red") {
+      rollTheDice("first");
+      rollTheDice("second");
+    } else {
+      rollTheDice("third");
+      rollTheDice("fourth");
+    }
   });
 
   for (let i = 0; i <= 4; i++) {
@@ -108,7 +114,10 @@
   }
 
   columns.on("click", function (e) {
-    moveCoin(e, "red", "white");
-    // moveCoin(e, "white", "red");
+    if (currentPlayer === "red") {
+      moveCoin(e, "red", "white");
+    } else {
+      moveCoin(e, "white", "red");
+    }
   });
 })();
