@@ -53,7 +53,16 @@
                 console.log("eat the coin");
                 destinationColumn.eq(0).removeClass(opponent);
                 destinationColumn.eq(1).removeClass("yellow");
-                columns.eq(0).children().eq(0).addClass(opponent);
+                console.log(columns.eq(0).children());
+                for (let i = 0; i < columns.eq(0).children().length; i++) {
+                  if (
+                    !columns.eq(0).children().eq(i).hasClass(player) &&
+                    !columns.eq(0).children().eq(i).hasClass(opponent)
+                  ) {
+                    columns.eq(0).children().eq(i).addClass(opponent);
+                    break;
+                  }
+                }
               }
 
               for (let y = 0; y <= destinationColumn.length; y++) {
