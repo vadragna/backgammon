@@ -18,21 +18,13 @@
     }
   }
 
-  function moveCoin(e, player, opponent) {
+  function moveCoin(e, player, opponent, type) {
     if (moves.length >= 1) {
-      console.log(
-        "e.currentTarget",
-        $(e.currentTarget),
-        "e.target",
-        $(e.target)
-      );
       for (let i = 0; i <= 24; i++) {
         if (columns[i] == e.currentTarget) {
           let targetColumn = $(columns[i]).eq(0).children();
-          console.log("targetColumn", targetColumn);
           for (let x = targetColumn.length - 1; x >= 0; x--) {
             if (targetColumn.eq(x).hasClass(player)) {
-              console.log(targetColumn.eq(x).hasClass(player));
               if (player === "red") {
                 destinationColumn = $(columns[i - moves[0]])
                   .eq(0)
@@ -48,9 +40,11 @@
               ) {
                 return;
               }
-              targetColumn.eq(x).removeClass(player);
-              moves.shift();
-              clearDice();
+              if (type == "add") {
+                targetColumn.eq(x).removeClass(player);
+                moves.shift();
+                clearDice();
+              }
               if (
                 destinationColumn.eq(0).hasClass(opponent) &&
                 !destinationColumn.eq(1).hasClass(opponent)
@@ -64,8 +58,15 @@
                   !destinationColumn.eq(y).hasClass(player) &&
                   !destinationColumn.eq(y).hasClass(opponent)
                 ) {
-                  console.log(destinationColumn.eq(0));
-                  destinationColumn.eq(y).addClass(player);
+                  console.log("type", type);
+                  if (type === "add") {
+                    destinationColumn.eq(y).addClass(player);
+                  } else if (type === "over") {
+                    destinationColumn.eq(y).addClass("yellow");
+                  } else if (type === "out") {
+                    console.log("!!!!in out!!!!", destinationColumn.eq(y));
+                    destinationColumn.eq(y).removeClass("yellow");
+                  }
                   console.log("y", y, "x", x);
                   break;
                 }
@@ -73,11 +74,13 @@
               break;
             }
           }
-          if (moves.length == 0) {
-            if (currentPlayer == "red") {
-              currentPlayer = "white";
-            } else {
-              currentPlayer = "red";
+          if (type == "add") {
+            if (moves.length == 0) {
+              if (currentPlayer == "red") {
+                currentPlayer = "white";
+              } else {
+                currentPlayer = "red";
+              }
             }
           }
         }
@@ -174,17 +177,27 @@
 
   columns.on("click", function (e) {
     if (currentPlayer === "red") {
-      moveCoin(e, "red", "white");
+      moveCoin(e, "red", "white", "add");
     } else {
-      moveCoin(e, "white", "red");
+      moveCoin(e, "white", "red", "add");
     }
   });
 
-  //   columns.on("mouseover", function (e) {
-  //     if (currentPlayer === "red") {
-  //       moveCoin(e, "red", "white");
-  //     } else {
-  //       moveCoin(e, "white", "red");
-  //     }
-  //   });
+  columns.on("mouseover", function (e) {
+    if (currentPlayer === "red") {
+      moveCoin(e, "red", "white", "over");
+    } else {
+      moveCoin(e, "white", "red", "over");
+    }
+    console.log("destination column", destinationColumn);
+  });
+
+  columns.on("mouseleave", function (e) {
+    console.log("mouseout");
+    if (currentPlayer === "red") {
+      moveCoin(e, "red", "white", "out");
+    } else {
+      moveCoin(e, "white", "red", "out");
+    }
+  });
 })();
