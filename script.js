@@ -7,40 +7,66 @@
   console.log("columns", columns);
 
   function moveCoin(e, player, opponent) {
-    console.log("e.currentTarget", $(e.currentTarget), "e.target", $(e.target));
-    for (let i = 0; i <= 24; i++) {
-      if (columns[i] == e.currentTarget) {
-        let targetColumn = $(columns[i]).eq(0).children();
-        console.log("targetColumn", targetColumn);
-        for (let x = targetColumn.length - 1; x >= 0; x--) {
-          if (targetColumn.eq(x).hasClass(player)) {
-            console.log(targetColumn.eq(x).hasClass(player));
-            targetColumn.eq(x).removeClass(player);
-            if (player === "red") {
-              destinationColumn = $(columns[i - moves[0]])
-                .eq(0)
-                .children();
-            } else {
-              destinationColumn = $(columns[i + moves[0]])
-                .eq(0)
-                .children();
-            }
-            moves.shift();
-            for (let y = 0; y <= destinationColumn.length; y++) {
-              if (
-                !destinationColumn.eq(y).hasClass(player) &&
-                !destinationColumn.eq(y).hasClass(opponent)
-              ) {
-                console.log(destinationColumn.eq(0));
-                destinationColumn.eq(y).addClass(player);
-                console.log("y", y, "x", x);
-                break;
+    if (moves.length >= 1) {
+      console.log(
+        "e.currentTarget",
+        $(e.currentTarget),
+        "e.target",
+        $(e.target)
+      );
+      for (let i = 0; i <= 24; i++) {
+        if (columns[i] == e.currentTarget) {
+          let targetColumn = $(columns[i]).eq(0).children();
+          console.log("targetColumn", targetColumn);
+          for (let x = targetColumn.length - 1; x >= 0; x--) {
+            if (targetColumn.eq(x).hasClass(player)) {
+              console.log(targetColumn.eq(x).hasClass(player));
+              targetColumn.eq(x).removeClass(player);
+              if (player === "red") {
+                destinationColumn = $(columns[i - moves[0]])
+                  .eq(0)
+                  .children();
+              } else {
+                destinationColumn = $(columns[i + moves[0]])
+                  .eq(0)
+                  .children();
               }
+              moves.shift();
+              if (currentPlayer == "red" && moves.length == 1) {
+                $(".dice.first").children().removeClass("black");
+              } else if (currentPlayer == "red" && moves.length == 0) {
+                $(".dice.second").children().removeClass("black");
+              }
+              if (currentPlayer == "white" && moves.length == 1) {
+                $(".dice.third").children().removeClass("black");
+              } else if (currentPlayer == "white" && moves.length == 0) {
+                $(".dice.fourth").children().removeClass("black");
+              }
+              for (let y = 0; y <= destinationColumn.length; y++) {
+                if (
+                  !destinationColumn.eq(y).hasClass(player) &&
+                  !destinationColumn.eq(y).hasClass(opponent)
+                ) {
+                  console.log(destinationColumn.eq(0));
+                  destinationColumn.eq(y).addClass(player);
+                  console.log("y", y, "x", x);
+                  break;
+                }
+              }
+              break;
             }
-            break;
+          }
+          if (moves.length == 0) {
+            if (currentPlayer == "red") {
+              currentPlayer = "white";
+            } else {
+              currentPlayer = "red";
+            }
           }
         }
       }
+    } else {
+      currentPlayer = "white";
     }
   }
 
@@ -87,10 +113,26 @@
   }
 
   $("#roll").on("click", function () {
+    for (let i = 0; i < $(".dice.second").children().length; i++) {
+      if (
+        currentPlayer == "red" &&
+        $(".dice.second").children().eq(i).hasClass("black")
+      ) {
+        return;
+      }
+    }
     if (currentPlayer === "red") {
       rollTheDice("first");
       rollTheDice("second");
     } else {
+      for (let i = 0; i < $(".dice.fourth").children().length; i++) {
+        if (
+          currentPlayer == "red" &&
+          $(".dice.fourth").children().eq(i).hasClass("black")
+        ) {
+          return;
+        }
+      }
       rollTheDice("third");
       rollTheDice("fourth");
     }
