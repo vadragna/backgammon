@@ -221,7 +221,8 @@
   });
 
   $(".replace.first").on("click", function (e) {
-    if (currentPlayer != "yellow") {
+    console.log("moves", moves);
+    if (currentPlayer != "yellow" || moves.length <= 1) {
       return;
     }
     moves.reverse();
@@ -235,7 +236,8 @@
   });
 
   $(".replace.second").on("click", function (e) {
-    if (currentPlayer != "red") {
+    console.log("moves", moves);
+    if (currentPlayer != "red" || moves.length <= 1) {
       return;
     }
     moves.reverse();
