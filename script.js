@@ -102,11 +102,7 @@
     }
   }
 
-  function rollTheDice(dice) {
-    if (moves.length >= 2) {
-      return;
-    }
-    random = Math.floor(Math.random() * 6) + 1;
+  function drawDie(dice, random) {
     let diceSlots = $(".dice." + dice).children();
     console.log(dice, diceSlots);
 
@@ -144,6 +140,14 @@
       diceSlots.eq(6).addClass("black");
       diceSlots.eq(8).addClass("black");
     }
+  }
+
+  function rollTheDice(dice) {
+    if (moves.length >= 2) {
+      return;
+    }
+    random = Math.floor(Math.random() * 6) + 1;
+    drawDie(dice, random);
     moves.push(random);
   }
 
@@ -214,5 +218,33 @@
     } else {
       moveCoin(e, "white", "red", "out");
     }
+  });
+
+  $(".replace.first").on("click", function (e) {
+    if (currentPlayer != "yellow") {
+      return;
+    }
+    moves.reverse();
+    $(".dice.first").children().removeClass("black");
+    $(".dice.second").children().removeClass("black");
+    for (let i = 0; i <= 1; i++) {
+      drawDie("third", moves[i]);
+      drawDie("fourth", moves[i]);
+    }
+    console.log("e.target", e.target);
+  });
+
+  $(".replace.second").on("click", function (e) {
+    if (currentPlayer != "red") {
+      return;
+    }
+    moves.reverse();
+    $(".dice.first").children().removeClass("black");
+    $(".dice.second").children().removeClass("black");
+
+    drawDie("first", moves[0]);
+    drawDie("second", moves[1]);
+
+    console.log("e.target", e.target);
   });
 })();

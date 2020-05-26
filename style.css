@@ -257,6 +257,22 @@
   right: 732px;
 }
 
+.replace {
+  cursor: pointer;
+  position: absolute;
+  max-width: 40px;
+  max-height: 40px;
+  top: 250px;
+}
+
+.replace.first {
+  left: 100px;
+}
+
+.replace.second {
+  left: 650px;
+}
+
 .red {
   background-color: red;
 }
