@@ -47,12 +47,15 @@
               }
               if (
                 destinationColumn.eq(0).hasClass(opponent) &&
-                !destinationColumn.eq(1).hasClass(opponent)
+                !destinationColumn.eq(1).hasClass(opponent) &&
+                type === "add"
               ) {
                 console.log("eat the coin");
                 destinationColumn.eq(0).removeClass(opponent);
+                destinationColumn.eq(1).removeClass("yellow");
                 columns.eq(0).children().eq(0).addClass(opponent);
               }
+
               for (let y = 0; y <= destinationColumn.length; y++) {
                 if (
                   !destinationColumn.eq(y).hasClass(player) &&
@@ -86,11 +89,14 @@
         }
       }
     } else {
-      currentPlayer = "white";
+      return;
     }
   }
 
   function rollTheDice(dice) {
+    if (moves.length >= 2) {
+      return;
+    }
     random = Math.floor(Math.random() * 6) + 1;
     let diceSlots = $(".dice." + dice).children();
     console.log(dice, diceSlots);
