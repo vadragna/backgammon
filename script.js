@@ -4,7 +4,19 @@
   let random;
   let moves = [];
   let currentPlayer = "red";
-  console.log("columns", columns);
+
+  function clearDice() {
+    if (currentPlayer == "red" && moves.length == 1) {
+      $(".dice.first").children().removeClass("black");
+    } else if (currentPlayer == "red" && moves.length == 0) {
+      $(".dice.second").children().removeClass("black");
+    }
+    if (currentPlayer == "white" && moves.length == 1) {
+      $(".dice.third").children().removeClass("black");
+    } else if (currentPlayer == "white" && moves.length == 0) {
+      $(".dice.fourth").children().removeClass("black");
+    }
+  }
 
   function moveCoin(e, player, opponent) {
     if (moves.length >= 1) {
@@ -21,7 +33,6 @@
           for (let x = targetColumn.length - 1; x >= 0; x--) {
             if (targetColumn.eq(x).hasClass(player)) {
               console.log(targetColumn.eq(x).hasClass(player));
-              targetColumn.eq(x).removeClass(player);
               if (player === "red") {
                 destinationColumn = $(columns[i - moves[0]])
                   .eq(0)
@@ -31,16 +42,22 @@
                   .eq(0)
                   .children();
               }
-              moves.shift();
-              if (currentPlayer == "red" && moves.length == 1) {
-                $(".dice.first").children().removeClass("black");
-              } else if (currentPlayer == "red" && moves.length == 0) {
-                $(".dice.second").children().removeClass("black");
+              if (
+                destinationColumn.eq(0).hasClass(opponent) &&
+                destinationColumn.eq(1).hasClass(opponent)
+              ) {
+                return;
               }
-              if (currentPlayer == "white" && moves.length == 1) {
-                $(".dice.third").children().removeClass("black");
-              } else if (currentPlayer == "white" && moves.length == 0) {
-                $(".dice.fourth").children().removeClass("black");
+              targetColumn.eq(x).removeClass(player);
+              moves.shift();
+              clearDice();
+              if (
+                destinationColumn.eq(0).hasClass(opponent) &&
+                !destinationColumn.eq(1).hasClass(opponent)
+              ) {
+                console.log("eat the coin");
+                destinationColumn.eq(0).removeClass(opponent);
+                columns.eq(0).children().eq(0).addClass(opponent);
               }
               for (let y = 0; y <= destinationColumn.length; y++) {
                 if (
@@ -162,4 +179,12 @@
       moveCoin(e, "white", "red");
     }
   });
+
+  //   columns.on("mouseover", function (e) {
+  //     if (currentPlayer === "red") {
+  //       moveCoin(e, "red", "white");
+  //     } else {
+  //       moveCoin(e, "white", "red");
+  //     }
+  //   });
 })();
