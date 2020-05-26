@@ -60,11 +60,11 @@
                 ) {
                   console.log("type", type);
                   if (type === "add") {
+                    destinationColumn.eq(y).removeClass("yellow");
                     destinationColumn.eq(y).addClass(player);
                   } else if (type === "over") {
                     destinationColumn.eq(y).addClass("yellow");
                   } else if (type === "out") {
-                    console.log("!!!!in out!!!!", destinationColumn.eq(y));
                     destinationColumn.eq(y).removeClass("yellow");
                   }
                   console.log("y", y, "x", x);
